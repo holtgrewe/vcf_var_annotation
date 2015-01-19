@@ -45,7 +45,7 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 
      HGVS says:
 
-        .. container:: preferred 
+        .. container:: preferred
 
             Description of so called "silent" changes in the format p.(Leu54Leu) (or p.(L54L)) **should** not be used.
             When desired such changes can be described using p.(=)
@@ -57,9 +57,9 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 
 * Multiple "effects / consequences" are separated by comma.
 
-   .. container:: optional 
+   .. container:: optional
 
-      * :optional:`Optional: Annotations are sorted by sorted by:`
+      * :optional:`Optional: Annotations are sorted by:`
 
            1. Effect/Consequence: Estimated deleteriousness.
               Compare using "most deleterious" when multiple consequences are predicted.
@@ -151,7 +151,7 @@ Field order and meaning
        Position and number of AA (one based, including START, but not STOP)
 
      * .. container:: optional
-       
+
           Distance to feature: All items in this field are options, so the field could be empty.
 
              * Up/Downstream:
@@ -310,7 +310,6 @@ It is recommended annotation programs clearly state their respective "deleteriou
 #. disruptive_inframe_deletion
 #. 5_prime_UTR_truncation+exon_loss_variant
 #. 3_prime_UTR_truncation+exon_loss
-#. splice_branch_variant
 #. splice_region_variant
 #. splice_branch_variant
 #. stop_retained_variant
@@ -335,7 +334,7 @@ It is recommended annotation programs clearly state their respective "deleteriou
 #. conserved_intergenic_variant
 #. intergenic_region
 #. coding_sequence_variant
-#. non_coding_exon_variant
-#. nc_transcript_variant
+#. non_coding_transcript_exon_variant
+#. non_coding_transcript_variant
 #. gene_variant
 #. chromosome
