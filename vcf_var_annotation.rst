@@ -310,7 +310,6 @@ It is recommended annotation programs clearly state their respective "deleteriou
 #. disruptive_inframe_deletion
 #. 5_prime_UTR_truncation+exon_loss_variant
 #. 3_prime_UTR_truncation+exon_loss
-#. splice_branch_variant
 #. splice_region_variant
 #. splice_branch_variant
 #. stop_retained_variant
