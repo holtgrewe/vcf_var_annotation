@@ -334,7 +334,7 @@ It is recommended annotation programs clearly state their respective "deleteriou
 #. conserved_intergenic_variant
 #. intergenic_region
 #. coding_sequence_variant
-#. non_coding_exon_variant
-#. nc_transcript_variant
+#. non_coding_transcript_exon_variant
+#. non_coding_transcript_variant
 #. gene_variant
 #. chromosome
