@@ -59,7 +59,7 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 
    .. container:: optional 
 
-      * :optional:`Optional: Annotations are sorted by sorted by:`
+      * :optional:`Optional: Annotations are sorted by:`
 
            1. Effect/Consequence: Estimated deleteriousness.
               Compare using "most deleterious" when multiple consequences are predicted.
