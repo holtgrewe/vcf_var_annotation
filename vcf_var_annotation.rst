@@ -45,7 +45,7 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 
      HGVS says:
 
-        .. container:: preferred 
+        .. container:: preferred
 
             Description of so called "silent" changes in the format p.(Leu54Leu) (or p.(L54L)) **should** not be used.
             When desired such changes can be described using p.(=)
@@ -57,7 +57,7 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 
 * Multiple "effects / consequences" are separated by comma.
 
-   .. container:: optional 
+   .. container:: optional
 
       * :optional:`Optional: Annotations are sorted by:`
 
@@ -151,7 +151,7 @@ Field order and meaning
        Position and number of AA (one based, including START, but not STOP)
 
      * .. container:: optional
-       
+
           Distance to feature: All items in this field are options, so the field could be empty.
 
              * Up/Downstream:
