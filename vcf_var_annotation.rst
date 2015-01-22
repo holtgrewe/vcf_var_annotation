@@ -224,6 +224,28 @@ In order to report annotations that are consistent with HGVS notation, variants 
 Then annotations are calculated, thus the reported annotations will be consistent with HGVS notation.
 :optional:`Annotation software should have a command line option to override this behaviour` (e.g. ``--no_shift_hgvs``).
 
+A full example
+--------------
+
+To help the further understanding of the VCF field proposed here, the following shows output of SnpEff 4.1 on the example VCF provided with this tool.
+
+::
+
+    ##SnpEffVersion="4.1a (build 2015-01-14), by Pablo Cingolani"
+    ##SnpEffCmd="SnpEff  GRCh37.75 examples/test.chr22.vcf "
+    ##INFO=<ID=ANN,Number=.,Type=String,Description="Functional annotations: 'Allele | Annotation | Annotation_Impact | Gene_Name | Gene_ID | Feature_Type | Feature_ID | Transcript_BioType | Rank | HGVS.c | HGVS.p | cDNA.pos / cDNA.length | CDS.pos / CDS.length | AA.pos / AA.length | Distance | ERRORS / WARNINGS / INFO' ">
+    ##INFO=<ID=LOF,Number=.,Type=String,Description="Predicted loss of function effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' ">
+    ##INFO=<ID=NMD,Number=.,Type=String,Description="Predicted nonsense mediated decay effects for this variant. Format: 'Gene_Name | Gene_ID | Number_of_transcripts_in_gene | Percent_of_transcripts_affected' ">
+    #CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+    22	17071756	.	T	C	.	.	ANN=C|3_prime_UTR_variant|MODIFIER|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.*11A>G|||||11|,C|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397A>G|||||4223|
+    22	17072035	.	C	T	.	.	ANN=T|missense_variant|MODERATE|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.1406G>A|p.Gly469Glu|1666/2034|1406/1674|469/557||,T|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397G>A|||||3944|
+    22	17072258	.	C	A	.	.	ANN=A|missense_variant|MODERATE|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.1183G>T|p.Gly395Cys|1443/2034|1183/1674|395/557||,A|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397G>T|||||3721|
+    22	17072674	.	G	A	.	.	ANN=A|missense_variant|MODERATE|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.767C>T|p.Pro256Leu|1027/2034|767/1674|256/557||,A|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397C>T|||||3305|
+    22	17072747	.	T	C	.	.	ANN=C|missense_variant|MODERATE|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.694A>G|p.Met232Val|954/2034|694/1674|232/557||,C|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397A>G|||||3232|
+    22	17072781	.	C	T	.	.	ANN=T|synonymous_variant|LOW|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.660G>A|p.Pro220Pro|920/2034|660/1674|220/557||,T|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397G>A|||||3198|
+    22	17073043	.	C	T	.	.	ANN=T|missense_variant|MODERATE|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.398G>A|p.Arg133Gln|658/2034|398/1674|133/557||,T|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397G>A|||||2936|
+    22	17073066	.	A	G	.	.	ANN=G|synonymous_variant|LOW|CCT8L2|ENSG00000198445|transcript|ENST00000359963|protein_coding|1/1|c.375T>C|p.Ala125Ala|635/2034|375/1674|125/557||,G|downstream_gene_variant|MODIFIER|FABP5P11|ENSG00000240122|transcript|ENST00000430910|processed_pseudogene||n.*397T>C|||||2913|
+
 Annotations and putative impacts
 --------------------------------
 
