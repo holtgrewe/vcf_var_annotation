@@ -74,7 +74,7 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 Field order and meaning
 -----------------------
 
-* Allele (or ALT):
+* ``Allele`` (or ``ALT``):
 
    * In case of multiple ALT fields, this helps to identify which ALT we are referring to.
      E.g.::
@@ -96,119 +96,120 @@ Field order and meaning
         chr1    123456  .   A   T   .       .       ANN=|...
         chr1    123457  .   C   G   .       .       ANN=C-chr1:123456_A>T|...
 
-    * Annotations (a.k.a. effect or consequence):
-      Annotated using Sequence Ontology terms.
-      Multiple effects can be concatenated using "``&``".::
+* ``Annotation`` (a.k.a. effect or consequence):
+  Annotated using Sequence Ontology terms.
+  Multiple effects can be concatenated using "``&``".::
 
-        #chrom  pos     id  ref alt qual    filter  info
-        chr1    123456  .   a   t   .       .       ANN=A|intron_variant&nc_transcript_variant
+    #chrom  pos     id  ref alt qual    filter  info
+    chr1    123456  .   a   t   .       .       ANN=A|intron_variant&nc_transcript_variant
 
-    * Putative_impact:
-      A simple estimation of putative impact / deleteriousness : {HIGH, MODERATE, LOW, MODIFIER}
+* ``Annotation_impact``:
+  A simple estimation of putative impact / deleteriousness : {HIGH, MODERATE, LOW, MODIFIER}
 
-    * Gene Name:
-      Common gene name (HGNC).
-      Optional: use closest gene when the variant is "intergenic".
+* ``Gene_Name``:
+  Common gene name (HGNC).
+  Optional: use closest gene when the variant is "intergenic".
 
-    * Gene ID:
-      Gene ID
+* ``Gene_ID``:
+  Gene ID
 
-    * Feature type:
-      Which type of feature is in the next field (e.g. transcript, motif, miRNA, etc.).
-      It :preferred:`is preferred to use Sequence Ontology (SO) terms`, but "custom" (user defined) are allowed.::
+* ``Feature_type``:
+  Which type of feature is in the next field (e.g. transcript, motif, miRNA, etc.).
+  It :preferred:`is preferred to use Sequence Ontology (SO) terms`, but "custom" (user defined) are allowed.::
 
-          ANN=A|stop_gained|HIGH|||transcript|...
+      ANN=A|stop_gained|HIGH|||transcript|...
 
-       Tissue specific features may include cell type / tissue information separated by semicolon e.g.::
+   Tissue specific features may include cell type / tissue information separated by semicolon e.g.::
 
-          ANN=A|histone_binding_site|LOW|||H3K4me3:HeLa-S3|...
+      ANN=A|histone_binding_site|LOW|||H3K4me3:HeLa-S3|...
 
-     * Feature ID:
-       Depending on the annotation, this may be:
-       Transcript ID (:preferred:`preferably using version number`), Motif ID, miRNA, ChipSeq peak, Histone mark, etc.
-       Note: Some features may not have ID (e.g. histone marks from custom Chip­Seq experiments may not have a unique ID).
+* ``Feature_ID``:
+  Depending on the annotation, this may be:
+  Transcript ID (:preferred:`preferably using version number`), Motif ID, miRNA, ChipSeq peak, Histone mark, etc.
+  Note: Some features may not have ID (e.g. histone marks from custom Chip­Seq experiments may not have a unique ID).
 
-     * Transcript biotype. The bare minimum is at least a description on whether the transcript is ``{"Coding","Noncoding"}``.
-       Whenever possible, use ENSEMBL biotypes.
+* ``Transcript_BioType``:
+  The bare minimum is at least a description on whether the transcript is ``{"Coding","Noncoding"}``.
+  Whenever possible, use ENSEMBL biotypes.
 
-     * Rank / total:
-       Exon or Intron rank / total number of exons or introns.
+* ``Rank``:
+  Exon or Intron rank / total number of exons or introns.
 
-     * HGVS.c:
-       Variant using HGVS notation (DNA level)
+* ``HGVS.c``:
+  Variant using HGVS notation (DNA level)
 
-     * HGVS.p:
-       If variant is coding, this field describes the variant using HGVS notation (Protein level).
-       Since transcript ID is already mentioned in ¿feature ID¿, it may be omitted here.
+* ``HGVS.p``:
+  If variant is coding, this field describes the variant using HGVS notation (Protein level).
+  Since transcript ID is already mentioned in "feature ID", it may be omitted here.
 
-     * cDNA_position :optional:`/ (cDNA_len optional)`:
-       Position in cDNA and trancript's cDNA length (one based).
+* ``cDNA_position`` :optional:`/ (cDNA_len optional)`:
+  Position in cDNA and trancript's cDNA length (one based).
 
-     * CDS_position :optional:`/ (CDS_len optional)`:
-       Position and number of coding bases (one based includes START and STOP codons).
+* ``CDS_position`` :optional:`/ (CDS_len optional)`:
+  Position and number of coding bases (one based includes START and STOP codons).
 
-     * Protein_position / (Protein_len optional):
-       Position and number of AA (one based, including START, but not STOP)
+* ``AA.pos`` / (Aa.length optional):
+  Position and number of AA (one based, including START, but not STOP)
 
-     * .. container:: optional
+.. container:: optional
 
-          Distance to feature: All items in this field are options, so the field could be empty.
+     * ``Distance`` to feature: All items in this field are options, so the field could be empty.
 
-             * Up/Downstream:
-               Distance to first / last codon
+         * Up/Downstream:
+           Distance to first / last codon
 
-             * Intergenic:
-               Distance to closest gene
+         * Intergenic:
+           Distance to closest gene
 
-             * Distance to closest Intron boundary in exon (+/- up/downstream).
-               If same, use positive number.
+         * Distance to closest Intron boundary in exon (+/- up/downstream).
+           If same, use positive number.
 
-             * Distance to closest exon boundary in Intron (+/- up/downstream)
+         * Distance to closest exon boundary in Intron (+/- up/downstream)
 
-             * Distance to first base in MOTIF
+         * Distance to first base in MOTIF
 
-             * Distance to first base in miRNA
+         * Distance to first base in miRNA
 
-             * Distance to exon­intron boundary in splice_site or splice_region
+         * Distance to exon­intron boundary in splice_site or splice_region
 
-             * ChipSeq peak: Distance to summit (or peak center)
+         * ChipSeq peak: Distance to summit (or peak center)
 
-             * Histone mark / Histone state: Distance to summit (or peak center)
+         * Histone mark / Histone state: Distance to summit (or peak center)
 
-   * Errors, Warnings or Information messages.
-     Add errors, warnings or informative message that can affect annotation accuracy.
-     It can be added using either "codes" (as shown in column 1, e.g.  W1) or "message types" (as shown in column 2, e.g.  WARNING_REF_DOES_NOT_MATCH_GENOME).
-     All these errors, warnings or information messages messages are optional.
+* ``ERRORS / WARNINGS / INFO``:
+  Add errors, warnings or informative message that can affect annotation accuracy.
+  It can be added using either "codes" (as shown in column 1, e.g.  W1) or "message types" (as shown in column 2, e.g.  WARNING_REF_DOES_NOT_MATCH_GENOME).
+  All these errors, warnings or information messages messages are optional.
 
-     ==== ========================================= ===================
-     Code Message type                              Description / Notes
-     ==== ========================================= ===================
-     E1   ERROR_CHROMOSOME_NOT_FOUND                Chromosome does not exists in reference genome database.
-                                                    Typically indicates a mismatch between the chromosome names in the input file and the chromosome names used in the reference genome.
+  ==== ========================================= ===================
+  Code Message type                              Description / Notes
+  ==== ========================================= ===================
+  E1   ERROR_CHROMOSOME_NOT_FOUND                Chromosome does not exists in reference genome database.
+                                                 Typically indicates a mismatch between the chromosome names in the input file and the chromosome names used in the reference genome.
 
-     E2   ERROR_OUT_OF_CHROMOSOME_RANGE             The variant's genomic coordinate is greater than chromosome's length.
+  E2   ERROR_OUT_OF_CHROMOSOME_RANGE             The variant's genomic coordinate is greater than chromosome's length.
 
-     W1   WARNING_REF_DOES_NOT_MATCH_GENOME         This means that the "REF" field in the input VCF file does not match the reference genome.
-                                                    This warning may indicate a conflict between input data and data from reference genome (for instance is the input VCF was aligned to a different reference genome).
+  W1   WARNING_REF_DOES_NOT_MATCH_GENOME         This means that the "REF" field in the input VCF file does not match the reference genome.
+                                                 This warning may indicate a conflict between input data and data from reference genome (for instance is the input VCF was aligned to a different reference genome).
 
-     W2   WARNING_SEQUENCE_NOT_AVAILABLE            Reference sequence is not available, thus no inference could be performed.
+  W2   WARNING_SEQUENCE_NOT_AVAILABLE            Reference sequence is not available, thus no inference could be performed.
 
-     W3   WARNING_TRANSCRIPT_INCOMPLETE             A protein coding transcript having a non­multiple of 3 length.
-                                                    It indicates that the reference genome has missing information about this particular transcript.
+  W3   WARNING_TRANSCRIPT_INCOMPLETE             A protein coding transcript having a non­multiple of 3 length.
+                                                 It indicates that the reference genome has missing information about this particular transcript.
 
-     W4   WARNING_TRANSCRIPT_MULTIPLE_STOP_CODONS   A protein coding transcript has two or more STOP codons in the middle of the coding sequence (CDS).
-                                                    This should not happen and it usually means the reference genome may have an error in this transcript.
+  W4   WARNING_TRANSCRIPT_MULTIPLE_STOP_CODONS   A protein coding transcript has two or more STOP codons in the middle of the coding sequence (CDS).
+                                                 This should not happen and it usually means the reference genome may have an error in this transcript.
 
-     W5   WARNING_TRANSCRIPT_NO_START_CODON         A protein coding transcript does not have a proper START codon.
-                                                    It is rare that a real transcript does not have a START codon, so this probably indicates an error or missing information in the reference genome.
+  W5   WARNING_TRANSCRIPT_NO_START_CODON         A protein coding transcript does not have a proper START codon.
+                                                 It is rare that a real transcript does not have a START codon, so this probably indicates an error or missing information in the reference genome.
 
-     I1   INFO_REALIGN_3_PRIME                      Variant has been realigned to the most 3­prime position within the transcript.
-                                                    This is usually done to to comply with HGVS specification to always report the most 3­prime annotation.
+  I1   INFO_REALIGN_3_PRIME                      Variant has been realigned to the most 3­prime position within the transcript.
+                                                 This is usually done to to comply with HGVS specification to always report the most 3­prime annotation.
 
-     I2   INFO_COMPOUND_ANNOTATION                  This effect is a result of combining more than one variants (e.g. two consecutive SNPs that conform an MNP, or two consecutive frame_shift variants that compensate frame).
+  I2   INFO_COMPOUND_ANNOTATION                  This effect is a result of combining more than one variants (e.g. two consecutive SNPs that conform an MNP, or two consecutive frame_shift variants that compensate frame).
 
-     I3   INFO_NON_REFERENCE_ANNOTATION             An alternative reference sequence was used to calculate this annotation (e.g. cancer sample comparing somatic vs. germline).
-     ==== ========================================= ===================
+  I3   INFO_NON_REFERENCE_ANNOTATION             An alternative reference sequence was used to calculate this annotation (e.g. cancer sample comparing somatic vs. germline).
+  ==== ========================================= ===================
 
 Consistency between HGVS and functional annotations
 ---------------------------------------------------
