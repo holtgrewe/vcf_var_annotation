@@ -70,6 +70,24 @@ We use the name "effect" and "consequence" interchangeably, meaning "functional 
 
            4. Feature ID (compared alphabetically, even if the ID is a number).
 
+Header fields
+-------------
+
+The variant annotations are encoded in an ``INFO`` field of name ``ANN``.
+This field is defined in the header with its ``Number`` property set to ``.``, its ``Type`` set to ``String``.
+The ``Description`` is a string formed as follows.::
+
+   "Functional annotations: '${list of fields}' "
+
+The following shows a full example of a VCF ``ANN`` header line.
+The example includes line breaks that are not permitted in VCF, though.::
+
+   ##INFO=<ID=ANN,Number=.,Type=String,Description="Functional annotations: 'Allele | Annotation | Annotation_Impact | Gene_Name | Gene_ID | Feature_Type | Feature_ID | Transcript_BioType | Rank | HGVS.c | HGVS.p | cDNA.pos / cDNA.length | CDS.pos / CDS.length | AA.pos / AA.length | Distance | ERRORS / WARNINGS / INFO' ">
+
+The space before and after single quotation marks (``'``) can be missing , as can the space left and right of the pipe symbols (``|``).
+That is, the following header line is equivalent to the earlier one.::
+
+   ##INFO=<ID=ANN,Number=.,Type=String,Description="Functional annotations:'Allele |Annotation|Annotation_Impact|Gene_Name|Gene_ID|Feature_Type|Feature_ID|Transcript_BioType|Rank|HGVS.c|HGVS.p|cDNA.pos / cDNA.length|CDS.pos / CDS.length|AA.pos / AA.length|Distance|ERRORS / WARNINGS / INFO'">
 
 Field order and meaning
 -----------------------
